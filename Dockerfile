@@ -1,5 +1,4 @@
 FROM rocker/tidyverse
-MAINTAINER Mark Edmondson (r@sunholo.com)
 
 # install cron and R package dependencies
 RUN apt-get update && apt-get install -y \
@@ -14,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 ## Install packages from CRAN
 RUN install2.r --error \ 
     -r 'http://cran.rstudio.com' \
-    googleAuthR shinyFiles googleCloudStorageR \
+    googleAuthR shinyFiles miniUI googleCloudStorageR \
     bigQueryR gmailr googleAnalyticsR cronR googleComputeEngineR searchConsoleR \
     ## install Github packages
     && Rscript -e "devtools::install_github(c('MarkEdmondson1234/googleLanguageR'))" \
